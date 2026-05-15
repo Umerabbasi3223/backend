@@ -1,0 +1,135 @@
+/* ShopCategory.css - FIXED VERSION */
+
+/* Main container - FIX FOR HORIZONTAL SCROLLBAR */
+.shop-category {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden !important;
+    margin: 0;
+    padding: 0;
+}
+
+/* BANNER FIX - Most likely culprit */
+.shopcategory-banner {
+    width: 100vw !important; /* Use viewport width instead of 100% */
+    max-width: 100% !important;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw !important;
+    margin-right: -50vw !important;
+    padding: 0 !important;
+}
+
+/* Alternative banner fix */
+.shopcategory-banner {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+    display: block;
+}
+
+/* Product grid container */
+.shopcategory-products {
+    width: 100%;
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    margin: 30px auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* Ensure individual items don't overflow */
+.shopcategory-products .item {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+/* Header section */
+.shopcategory-header {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+    text-align: center;
+    margin: 20px 0;
+}
+
+/* Sort section */
+.shopcategory-indexSort {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+}
+
+/* Debug info - keep it hidden */
+.debug-info {
+    display: none; /* Hide in production */
+    width: 100%;
+    max-width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+/* Loading and error states */
+.shop-category.loading,
+.shop-category.error {
+    width: 100%;
+    max-width: 100%;
+    padding: 50px 20px;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+/* No products state */
+.no-products {
+    width: 100%;
+    max-width: 100%;
+    padding: 50px 20px;
+    text-align: center;
+    grid-column: 1 / -1;
+}
+
+/* Responsive fixes */
+@media (max-width: 768px) {
+    .shopcategory-products {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        padding: 0 15px;
+        gap: 15px;
+    }
+    
+    .shopcategory-banner {
+        height: 300px;
+        object-fit: cover;
+    }
+}
+
+@media (max-width: 480px) {
+    .shopcategory-products {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        padding: 0 10px;
+        gap: 10px;
+    }
+    
+    .shopcategory-banner {
+        height: 200px;
+    }
+    
+    .shopcategory-indexSort {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+}

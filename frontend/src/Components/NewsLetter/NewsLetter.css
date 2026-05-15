@@ -1,0 +1,329 @@
+.newsletter {
+    padding: 100px 40px;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.newsletter::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.03)" points="0,0 1000,0 1000,1000"/></svg>');
+    background-size: cover;
+}
+
+.newsletter h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #ffd700 0%, #ff6b6b 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.2;
+    position: relative;
+    z-index: 2;
+}
+
+.newsletter h1::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, #ffd700, #ff6b6b);
+    border-radius: 2px;
+}
+
+.newsletter p {
+    font-size: 1.3rem;
+    color: #e2e8f0;
+    margin-bottom: 50px;
+    font-weight: 400;
+    line-height: 1.6;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: 2;
+}
+
+.newsletter-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    max-width: 600px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border-radius: 60px;
+    padding: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+.newsletter-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.newsletter-box input {
+    flex: 1;
+    padding: 20px 30px;
+    border: none;
+    background: transparent;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 500;
+    border-radius: 50px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.newsletter-box input::placeholder {
+    color: #a0aec0;
+    font-weight: 400;
+}
+
+.newsletter-box input:focus {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.newsletter-box button {
+    padding: 20px 40px;
+    border: none;
+    background: linear-gradient(135deg, #ffd700 0%, #ff6b6b 100%);
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 8px 20px rgba(255, 107, 107, 0.3);
+    min-width: 160px;
+}
+
+.newsletter-box button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(255, 107, 107, 0.4);
+    background: linear-gradient(135deg, #ff6b6b 0%, #ffd700 100%);
+}
+
+.newsletter-box button:active {
+    transform: translateY(0);
+}
+
+/* Floating elements for visual interest */
+.newsletter::after {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.newsletter::before {
+    content: '';
+    position: absolute;
+    bottom: -150px;
+    left: -150px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(255, 107, 107, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    z-index: 1;
+}
+
+/* Animation */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.newsletter h1,
+.newsletter p,
+.newsletter-box {
+    opacity: 0;
+    animation: slideInUp 0.8s ease forwards;
+}
+
+.newsletter h1 {
+    animation-delay: 0.1s;
+}
+
+.newsletter p {
+    animation-delay: 0.2s;
+}
+
+.newsletter-box {
+    animation-delay: 0.3s;
+}
+
+/* Success state */
+.newsletter.success .newsletter-box {
+    background: rgba(72, 187, 120, 0.1);
+    border-color: rgba(72, 187, 120, 0.3);
+}
+
+.newsletter.success button {
+    background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+    box-shadow: 0 8px 20px rgba(72, 187, 120, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .newsletter {
+        padding: 80px 30px;
+    }
+    
+    .newsletter h1 {
+        font-size: 3rem;
+    }
+    
+    .newsletter p {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .newsletter {
+        padding: 60px 20px;
+    }
+    
+    .newsletter h1 {
+        font-size: 2.5rem;
+    }
+    
+    .newsletter p {
+        font-size: 1.1rem;
+        margin-bottom: 40px;
+    }
+    
+    .newsletter-box {
+        flex-direction: column;
+        gap: 15px;
+        border-radius: 25px;
+        padding: 20px;
+        max-width: 400px;
+    }
+    
+    .newsletter-box input {
+        width: 100%;
+        text-align: center;
+        padding: 18px 20px;
+        border-radius: 15px;
+        background: rgba(255, 255, 255, 0.05);
+    }
+    
+    .newsletter-box button {
+        width: 100%;
+        border-radius: 15px;
+        padding: 18px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .newsletter {
+        padding: 50px 15px;
+    }
+    
+    .newsletter h1 {
+        font-size: 2rem;
+    }
+    
+    .newsletter p {
+        font-size: 1rem;
+        margin-bottom: 30px;
+    }
+    
+    .newsletter-box {
+        padding: 15px;
+    }
+    
+    .newsletter-box input {
+        padding: 16px 15px;
+        font-size: 1rem;
+    }
+    
+    .newsletter-box button {
+        padding: 16px 15px;
+        font-size: 1rem;
+    }
+}
+
+/* Loading state */
+.newsletter.loading .newsletter-box button {
+    position: relative;
+    color: transparent;
+}
+
+.newsletter.loading .newsletter-box button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    border: 2px solid transparent;
+    border-top: 2px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Error state */
+.newsletter.error .newsletter-box {
+    border-color: rgba(245, 101, 101, 0.5);
+    background: rgba(245, 101, 101, 0.05);
+}
+
+.newsletter.error .newsletter-box input {
+    color: #f56565;
+}
+
+.newsletter .error-message {
+    color: #f56565;
+    font-size: 0.9rem;
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+/* Focus states for accessibility */
+.newsletter-box input:focus {
+    box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.3);
+}
+
+.newsletter-box button:focus {
+    outline: 2px solid white;
+    outline-offset: 2px;
+}

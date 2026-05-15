@@ -1,0 +1,313 @@
+/* NewCollections.css */
+.new-collections {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin: 80px auto;
+    max-width: 1400px;
+    padding: 0 20px;
+}
+
+.new-collections h1 {
+    color: #171717;
+    font-size: 42px;
+    font-weight: 700;
+    position: relative;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.new-collections h1:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 4px;
+    background: linear-gradient(90deg, #ff4141, #ff6b6b);
+    border-radius: 2px;
+}
+
+.collections {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 40px;
+    width: 100%;
+    margin-top: 30px;
+}
+
+/* Loading State */
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #ff4141;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 50px 0;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Error State */
+.error-message {
+    text-align: center;
+    padding: 40px;
+    background: linear-gradient(135deg, #ffefef, #fff);
+    border-radius: 12px;
+    border: 1px solid #ffcdd2;
+    margin: 30px 0;
+    width: 100%;
+    max-width: 500px;
+}
+
+.error-message p {
+    color: #ff4141;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.error-message button {
+    padding: 12px 30px;
+    background: #ff4141;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.error-message button:hover {
+    background: #e63939;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 65, 65, 0.3);
+}
+
+/* Empty State */
+.empty-collections {
+    text-align: center;
+    padding: 50px;
+    background: #f9f9f9;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 600px;
+}
+
+.empty-collections p {
+    color: #666;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .new-collections {
+        padding: 0 40px;
+    }
+    
+    .collections {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 30px;
+    }
+}
+
+@media (max-width: 992px) {
+    .new-collections h1 {
+        font-size: 36px;
+    }
+    
+    .collections {
+        grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+        gap: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .new-collections {
+        margin: 60px auto;
+        padding: 0 20px;
+    }
+    
+    .new-collections h1 {
+        font-size: 32px;
+    }
+    
+    .new-collections h1:after {
+        width: 150px;
+    }
+    
+    .collections {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .new-collections {
+        margin: 40px auto;
+        padding: 0 15px;
+    }
+    
+    .new-collections h1 {
+        font-size: 28px;
+    }
+    
+    .collections {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .new-collections h1 {
+        font-size: 24px;
+    }
+    
+    .collections {
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+}
+
+/* Animation for items appearing */
+.collections > * {
+    animation: fadeInUp 0.5s ease forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.collections > *:nth-child(1) { animation-delay: 0.1s; }
+.collections > *:nth-child(2) { animation-delay: 0.2s; }
+.collections > *:nth-child(3) { animation-delay: 0.3s; }
+.collections > *:nth-child(4) { animation-delay: 0.4s; }
+.collections > *:nth-child(5) { animation-delay: 0.5s; }
+.collections > *:nth-child(6) { animation-delay: 0.6s; }
+.collections > *:nth-child(7) { animation-delay: 0.7s; }
+.collections > *:nth-child(8) { animation-delay: 0.8s; }
+/* Item.css */
+.item {
+    width: 100%;
+    max-width: 320px;
+    transition: all 0.3s ease;
+    animation: fadeIn 0.5s ease forwards;
+}
+
+.item a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.item-image {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+    background: #f5f5f5;
+}
+
+.item:hover .item-image {
+    transform: scale(1.02);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.item-name {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+    line-height: 1.4;
+    height: 50px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    -webkit-box-orient: vertical;
+}
+
+.item-price {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.item-new-price {
+    font-size: 20px;
+    font-weight: 700;
+    color: #ff4141;
+}
+
+.item-old-price {
+    font-size: 16px;
+    color: #8c8c8c;
+    text-decoration: line-through;
+    font-weight: 500;
+}
+
+/* Responsive for Item */
+@media (max-width: 768px) {
+    .item-image {
+        height: 240px;
+    }
+    
+    .item-name {
+        font-size: 16px;
+    }
+    
+    .item-new-price {
+        font-size: 18px;
+    }
+    
+    .item-old-price {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .item-image {
+        height: 200px;
+    }
+    
+    .item-name {
+        font-size: 15px;
+        height: 40px;
+    }
+    
+    .item-new-price {
+        font-size: 16px;
+    }
+    
+    .item-old-price {
+        font-size: 13px;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hover effect for collection items */
+.collections > *:hover {
+    transform: translateY(-5px);
+    transition: transform 0.3s ease;
+}
