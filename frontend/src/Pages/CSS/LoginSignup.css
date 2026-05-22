@@ -8,18 +8,18 @@
 
 .loginsignup {
   min-height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #2b3d89 0%, #ae77ea 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 22px;
 }
 
 .loginsignup-container {
   width: 100%;
   max-width: 1200px;
-  background: white;
-  border-radius: 32px;
+  background: rgb(179, 175, 175);
+  border-radius: 33px;
   overflow: hidden;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
   position: relative;
@@ -45,7 +45,7 @@
   padding: 40px;
   border-radius: 24px;
   text-align: center;
-  max-width: 400px;
+  max-width: 420px;
   width: 90%;
   animation: slideUp 0.5s ease;
 }
